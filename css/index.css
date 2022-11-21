@@ -1,0 +1,60 @@
+/* reset */
+
+body{
+	font: normal 16px 'Noto Sans KR', sans-serif; 
+    font-weight: 400;
+    line-height: 1.4;
+    color: #000;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    word-spacing: -.5px;
+    letter-spacing: -1px;
+}
+
+*{
+	font: normal 16px 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+}
+
+b, strong {font-weight: 700;}
+h1, h2, h3, h4, h5, h6 {font-size:1em;}
+h1, h2, h3, h4, h5, h6, div, p, dl, dt, dd, ul, ol, li, form, fieldset, blockquote, address, table, thead, tbody, tfoot, tr, td, caption {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol {list-style:	none;}
+a {color: #000; text-decoration: none;}
+em {font-style: normal;}
+p {line-height: 1.63;}
+
+/* layout */
+.header_top{width: 100%;height: 100px; display: flex;justify-content: center;  border-bottom: 1px solid #b1b5b9;}
+.header_top .inner{position: relative; width: 100%;height: 100%;}
+.header_bottom{width: 100%; height: 74px; display: flex;justify-content: center;  border-bottom: 1px solid #b1b5b9;}
+.header_bottom .inner{ position: relative ; width: 1170px; height: 100%;}
+
+
+/* header */
+h1.logo {text-align: center; position: absolute;top: 25%; left: 40%;}
+h1.logo > a{display: inline-block; width: 239px; height: 25px; }
+ul.header_util {padding: 5px 20px;position: absolute; top: 36.5%;right: 250px; }
+ul.header_util .lang > a{margin-left:25px}
+ul.header_util a{font-weight: 600; }
+ul.lang_box{margin-top: 5px; display: none;background-color: #fff; z-index: 2;}
+ul.lang_box li{ padding: 5px 30px; border: 1px solid #b1b5b9;}
+ul.gnb{width: 100%; height: 74px; display: flex; padding-right: 120px; justify-content: space-around;align-items: center;}
+ul.gnb li a{font-size: 20px; font-weight: 600;}
+li.gnb_list{width:234px; height: 70px; text-align: center; line-height: 74px;}
+li.gnb_list:hover{border-top:4px solid #13A9A7 ;}
+li.gnb_search{position: absolute;right: -80px; z-index: -1;}
+li.gnb_search img{right: 20px; z-index: 1;}
+ul.gnb > li:hover > .lnb {display: block;}
+/* lnb */
+.header_bottom .lnb{margin-top: 1px; width: 100%; background-color: red; display: none; }
+.header_bottom .lnb .lnb_inner{display: flex;justify-content: space-between;}
+ul.lnb_list{width: 200px; height:367px; padding:17px 17px 0px;border-right:1px solid #b1b5b9;}
+ul.lnb_list:last-child{border-right: 0px;}
+ul.lnb_list > li{padding: 5px 0px;}
+ul.lnb_list > li a:hover{color:#13A9A7 ;}
