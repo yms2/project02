@@ -42,19 +42,18 @@ h1.logo > a{display: inline-block; width: 239px; height: 25px; }
 ul.header_util {padding: 5px 20px;position: absolute; top: 36.5%;right: 250px; }
 ul.header_util .lang > a{margin-left:25px}
 ul.header_util a{font-weight: 600; }
-ul.lang_box{margin-top: 5px; display: none;background-color: #fff; z-index: 2;}
+ul.lang_box{margin-top: 5px; display: none;background-color: #fff; z-index: 200;}
 ul.lang_box li{ padding: 5px 30px; border: 1px solid #b1b5b9;}
 ul.gnb{width: 100%; height: 74px; display: flex; padding-right: 120px; justify-content: space-around;align-items: center;}
 ul.gnb li a{font-size: 20px; font-weight: 600;}
 li.gnb_list{width:234px; height: 70px; text-align: center; line-height: 74px;}
 li.gnb_list:hover{border-top:4px solid #13A9A7 ;}
-li.gnb_list:hover > .lnb{background-color: red;}
 li.gnb_search{position: absolute;right: -80px; z-index: -1;}
 li.gnb_search img{right: 20px; z-index: 1;}
-ul.gnb li:hover > .lnb_inner{background-color: blue;}
 /* lnb */
-.lnb{ margin-top: 1px; width: 100%;}
-.lnb_inner{display: flex;justify-content: space-between;position: fixed;display: none;}
+
+.lnb{ margin-top: 1px; width: 100%;position: relative;}
+.lnb_inner{display: flex;justify-content: space-between;position: fixed;z-index: 9999;background-color: #fff;display: none;}
 ul.lnb_list{width: 200px; height:367px; padding:17px 17px 0px;border-right:1px solid #b1b5b9;}
 ul.lnb_list:last-child{border-right: 0px;}
 ul.lnb_list > li{padding: 8px 0px;}
@@ -62,8 +61,27 @@ ul.lnb_list > li a{font-size: 17px;font-weight: 600;}
 ul.lnb_list > li a:hover{color:#13A9A7;}
 
 /* main */
-/* .contents{word-spacing: 0; letter-spacing: -.5px; line-height: normal;}
-.slide_list_area{position: relative; max-width: 100%; margin: 0 auto; overflow: hidden;}
-ul.slide_list {height: 460px; transform: translateX(-20%);}
-.slide_cont {position: relative; float: left; height: 100%;}
-.slide_cont > a {position: relative; top: 0; left: 50%; margin-left: -800px; display: block; height: 100%; text-indent: -9999px; background: url('/img/mainImg1.png') no-repeat;} */
+.slider {display: flex;width: 1920px;height: 400px;}
+.box {text-align: center;font-size: 60px;width: 100%;z-index: -9999;}
+
+/* contents */
+.mainItem{display: flex; width: 100%; justify-content: center;}
+.main_item{width: 1300px; height: 350px;border-radius: 15px;box-shadow: 5px 5px 5px rgb(0 0 0 / 12%);}
+.main_item > div{float: left; width: 433px;height: 100%;}
+.Item1{border-bottom-left-radius: 15px;border-top-left-radius: 15px;background: #1358a8;display: flex;justify-content: center;}
+.Item1 li{color: #fff;text-align: center;padding: 50px;}
+.main_title{font-size: 1.471em;font-weight: 600;margin:0 0 0.6em;}
+.main_txt{font-size: 1.118em;font-weight: 500;line-height: 1.4;}
+form{display: flex;justify-content: center;margin-top: -20px;}
+input[type="text"]{width: 264px;height: 43px;background: #fff;border: 0;border-radius: 10px 0 0 10px;padding: 0 15px;font-size: 1rem;}
+form button{cursor: pointer;width: 73px;height: 43px;border-radius: 0 10px 10px 0;background: #00afb1;border: 0;display: flex;align-items: center;justify-content: center;font-size: 1rem;color: #fff;font-weight: 500;}
+.main_item1{display: flex;width: 333px;height: 44px;justify-content: center;border: 1px solid #fff;border-radius: 8px;overflow: hidden;margin-top: 0.8em;margin-left: 15px;}
+.main_item1 .sel.on{background: #13427a;color: #00fcfd;width: 50%;padding: 0.5em;}
+.main_item1 .sel:first-child{border-right: 1px solid #fff;}
+.main_item1 .sel{width: 50%;color: #fff;padding: 0.5em;font-weight: 700;background: #1358a8;border: 0;cursor: pointer;}
+.main_item2{margin-top: -20px;}
+.Item2{background-color: #e4e8f0; display: flex; justify-content: center;}
+.Item2 li{padding: 50px;text-align: center;}
+.Item2 .sel{width: 163px; height: 53px;background: #1358a8;color: #fff;border: 0; border-radius: 15px;font-weight: 700;font-size: 17px;}
+.Item2 .sel2{width: 100%; margin-top: 0.8em; font-weight: 600;height: 3.118em; border: 1px solid #1358a8; color: #1358a8;background: #fff;border-radius: 15px;}
+.Item3{border-bottom-right-radius: 15px;border-top-right-radius: 15px;background-color: #fff;}
