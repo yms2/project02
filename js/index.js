@@ -23,106 +23,155 @@ lang.addEventListener('click',()=>{
     })
 });
 
+const slideList = document.querySelector('ul.slide_list');
+	const slidePage = slideList.querySelectorAll('.slide_page');
+	const pageLen = slidePage.length; // li 길이
+	const slidePageWidth = 100 / (pageLen + 2); // li 너비 계산
+	const pageNum = document.querySelector('.page_num');
+	const state = document.querySelector('.state');
+	let curIdx = 0;
+	let curPage = slidePage[curIdx]; // 활성화 슬라이드 선언
+	curPage.classList.add('active');
 
-const nav = document.querySelector('ul.gnb')
-const navList = document.querySelector('.lnb_inner')
+	slideList.style.width = `${100 * (pageLen + 2)}%`; // ul 너비 지정
+	slidePage.forEach((element) => {
+		element.style.width = `${slidePageWidth}%`;
+	}); // li 너비 지정
 
-nav.addEventListener('mouseover',()=>{
-	navList.style.display = 'block'
-	navList.style.display = 'flex'
-})
-nav.addEventListener('mouseout',() =>{
-    navList.style.display = 'none'
-})
+	// 슬라이드 양 끝에 슬라이드 복제하기
+	const slidePageFirst = slideList.firstElementChild.cloneNode(true);
+	const slidePageLast = slideList.lastElementChild.cloneNode(true);
+	slideList.appendChild(slidePageFirst);
+	slideList.insertBefore(slidePageLast, slideList.firstElementChild);
 
-// main
-// function Slider(target) {
-//     // 상태
-//     let index = 1;
-//     let isMoved = true;
-//     const speed = 2000; // ms
-  
-//     // 방향
-//     const transform = "transform " + speed / 2000 + "s" ;
-//     let translate = (i) => "translateX(-" + 100 * i + "%)";
+	slideList.lastElementChild.classList.remove('active'); // 복제된 슬라이드로부터 따라온 active 제거
 
-//       // 슬라이더
-//     const slider = document.querySelector(target);
-//     const sliderRects = slider.getClientRects()[0];
-//     slider.style["overflow"] = "hidden";
+	// 페이지 로드되면 자동재생
+	let setting; // clear를 위한 전역함수 선언
 
-//       // 슬라이더 화면 컨테이너
-//     const container = document.createElement("div");
-//     container.style["display"] = "flex";
-//     container.style["width"] = sliderRects.width + "px";
-//     container.style["height"] = sliderRects.height + "px";
-//     container.style["transform"] = translate(index);
+	function autoPlay() {
+		setting = setInterval(() => {
+			slideList.style.transition = '1s';
+			slideList.style.transform = `translateX(-${slidePageWidth * (curIdx + 2)}%`;
 
-//     let boxes = [].slice.call(slider.children);
-//     boxes = [].concat(boxes[boxes.length - 1], boxes, boxes[0]);
-  
-//     // 슬라이더 화면 스타일
-//     const size = boxes.length;
-//     for (let i = 0; i < size; i++) {
-//       const box = boxes[i];
-//       container.appendChild(box.cloneNode(true));
-//     }
-  
-//     // 처음/마지막 화면 눈속임 이벤트
-//     container.addEventListener("transitionstart", function () {
-//       isMoved = false;
-//       setTimeout(() => {
-//         isMoved = true;
-//       }, speed);
-//     });
-//     container.addEventListener("transitionend", function () {
-//       // 처음으로 순간이동
-//       if (index === size - 1) {
-//         index = 1;
-//         container.style["transition"] = "none";
-//         container.style["transform"] = translate(index);
-//       }
-//       // 끝으로 순간이동
-//       if (index === 0) {
-//         index = size - 2;
-//         container.style["transition"] = "none";
-//         container.style["transform"] = translate(index);
-//       }
-//     });
-  
-//     // 슬라이더 붙이기
-//     slider.innerHTML = "";
-//     slider.appendChild(container);
-  
-//     return {
-//       move: function (i) {
-//         if (isMoved === true) {
-//           index = i;
-//           container.style["transition"] = transform;
-//           container.style["transform"] = translate(index);
-//         }
-//       },
-//       next: function () {
-//         if (isMoved === true) {
-//           index = (index + 1) % size;
-//           container.style["transition"] = transform;
-//           container.style["transform"] = translate(index);
-//         }
-//       },
-//       prev: function () {
-//         if (isMoved === true) {
-//           index = index === 0 ? index + size : index;
-//           index = (index - 1) % size;
-//           container.style["transition"] = transform;
-//           container.style["transform"] = translate(index);
-//         }
-//       }
-//     };
-//   }
-  
-//   const s1 = new Slider("#slider1", "H");
-  
-//   setInterval(() => {
-//     s1.next();
-//   }, 3000)
+			curPage.classList.remove('active'); // 지나간 슬라이드
+			
+			curIdx++;
 
+			curPage = slidePage[curIdx];
+			pageNum.textContent = curIdx + 1;
+			state.style.width = `${20 * (curIdx + 1)}%`;
+
+			if(curIdx === pageLen) {
+				setTimeout(() => {
+					slideList.style.transition = '0s';
+					slideList.style.transform = `translateX(-${slidePageWidth}%`;
+				},1001);
+				curIdx = 0;
+				curPage = slidePage[curIdx];
+				pageNum.textContent = curIdx + 1;
+				state.style.width = '20%';
+			};
+
+			curPage.classList.add('active');
+		},4000);
+	};
+
+	document.addEventListener("DOMContentLoaded", () => {
+		autoPlay();
+	});
+
+	// 다음 페이지로 이동
+	function nextPage() {
+		slideList.style.transition = '1s';
+		slideList.style.transform = `translateX(-${slidePageWidth * (curIdx + 2)}%`;
+
+		curPage.classList.remove('active'); // 지나간 슬라이드
+
+		curIdx++;
+
+		curPage = slidePage[curIdx];
+		pageNum.textContent = curIdx + 1;
+		state.style.width = `${20 * (curIdx + 1)}%`;
+
+		if(curIdx === pageLen) {
+			setTimeout(() => {
+				slideList.style.transition = '0s';
+				slideList.style.transform = `translateX(-${slidePageWidth}%`;
+			},1001);
+			curIdx = 0;
+			curPage = slidePage[curIdx];
+			pageNum.textContent = curIdx + 1;
+			state.style.width = '20%';
+		};
+
+		curPage.classList.add('active');
+	};
+
+	// 다음버튼 클릭
+	const btnNext = document.querySelector('.btn.next');
+	let click = true;
+
+	btnNext.addEventListener('click', () => {
+		if (click) {
+			clearInterval(setting); // 자동재생 중지
+			
+			nextPage();
+
+			autoPlay();
+
+			click = !click;
+
+			// transition(1s) 완료 후 클릭이 또 가능하도록
+			setTimeout(() => {
+				click = true;
+			},1000)
+		}
+	});
+
+	// 이전 페이지로 이동
+	function prevPage() {
+		slideList.style.transition = '1s';
+		slideList.style.transform = `translateX(-${slidePageWidth * curIdx}%`;
+
+		curPage.classList.remove('active'); // 지나간 슬라이드
+
+		curIdx--;
+
+		curPage = slidePage[curIdx];
+		pageNum.textContent = curIdx + 1;
+		state.style.width = `${20 * (curIdx + 1)}%`;
+
+		if(curIdx === -1) {
+			setTimeout(() => {
+				slideList.style.transition = '0s';
+				slideList.style.transform = `translateX(-${slidePageWidth * pageLen}%`;
+			},1001);
+			curIdx = pageLen - 1;
+			curPage = slidePage[curIdx];
+			pageNum.textContent = curIdx + 1;
+			state.style.width = '100%';
+		};
+
+		curPage.classList.add('active');
+	};
+
+	// 이전버튼 클릭
+	const btnPrev = document.querySelector('.btn.prev');
+
+	btnPrev.addEventListener('click', () => {
+		if (click) {
+			clearInterval(setting); // 자동재생 중지
+			
+			prevPage();
+
+			autoPlay();
+
+			click = !click;
+
+			// transition(1s) 완료 후 클릭이 또 가능하도록
+			setTimeout(() => {
+				click = true;
+			},1000)
+		}
+	});

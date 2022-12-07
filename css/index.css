@@ -49,6 +49,7 @@ h1.logo > a{display: inline-block; width: 239px; height: 25px; }
 .header_util > .lang_box > li + li {margin-top: 13px;}
 .header_util > a > span {display: inline-block; width: 16px; height: 16px; margin-left: 6px; vertical-align: middle; background-position: -22px -26px;}
 
+
 ul.gnb{width: 100%; height: 74px; display: flex; padding-right: 120px; justify-content: space-around;align-items: center;}
 ul.gnb li a{font-size: 20px; font-weight: 600;}
 li.gnb_list{width:234px; height: 70px; text-align: center; line-height: 74px;}
@@ -57,25 +58,55 @@ li.gnb_search{position: absolute;top: -20px; right: -170px; z-index: -1;}
 li.gnb_search img{right: 20px; z-index: 1;}
 /* lnb */
 
-ul.lnb_list{width: 200px; height:367px; padding:0px 17px 0px; margin-top: 23px;border-right: 0px solid #878890;}
+ul.lnb_list{width: 200px; height:367px; padding:0px 17px 0px; margin-top: 23px;}
+ul.gnb > li > ul.lnb12{border-right: 0px}
 ul.lnb_list > li{padding: 8px 0px;}
 ul.lnb_list:last-child{border-right: 0px;}
 ul.lnb_list > li a{font-size: 17px;font-weight: 600;}
 nav {display: inline-block;}
+/* ul.gnb > li{background-color: red;width: 100%;} */
 ul.gnb > li > a > strong{position: relative; top: 35px;}
 ul.gnb > li > ul.lnb_list li{display: none;}
 ul.gnb {font-size: 0; font-weight: 800;}
 ul.gnb > li {display: inline-block;}
-ul.gnb > li:hover > ul.lnb_list li{display: block;}
+ul.gnb > li:hover > ul.lnb_list > li{display: block;}
 ul.gnb > li:hover >ul.lnb_list{border-right: 1px solid #878890;}
 ul.gnb > li > a {position: relative; display: inline-block; line-height: 80px; font-size: 15px; margin: 0 32px;}
 ul.gnb > li > a::after {position: absolute; bottom: 20px; left: -1px; content: ''; display: block; width: 0; height: 2px; background-color: #13A9A7; transition: width .3s cubic-bezier(0.215, 0.61, 0.355, 1);}
 ul.gnb > li:hover > a::after {width: calc(100% + 2px);}
 
 /* main */
-.slider{position: relative; overflow: hidden; display: none;}
-.slider > ul {display:inline-flex;}
-li.box { width: 1920px; height: 400px; background: url(/img/mainImg1.png);}
+.contents.main {min-width: 1100px;}
+.slide_page_area {position: relative; margin-bottom: 69px; overflow: hidden;}
+ul.slide_list {position: relative; transform: translateX(calc(-100% / 7));}
+ul.slide_list::after {content: ''; display: block; clear: both;}
+.slide_page {position: relative; float: left; padding-top: 5.7%;}
+.slide_page > a {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+.slide_page > a > img {position: absolute; width: 100%;}
+.slide_page > a > h2 {position: absolute; right: 160px; width: 190px; text-indent: -99999px; background-size: 474px 1250px; opacity: 0; transition: all .5s linear .8s;}
+.slide_page.active > a > h2 {opacity: 1;}
+.slide_page.page1 > a > h2 {bottom: 103px; width: 345px; height: 29px; background-position: 0 -1204px;}
+.slide_page.page2 > a > h2 {bottom: 78px; height: 36px; background-position: 0 -1063px;}
+.slide_page.page3 > a > h2 {bottom: 60px; height: 53px; background-position: -143px -1101px;}
+.slide_page > a > * {color: #fff;}
+.slide_page > a > strong {position: absolute; bottom: 238px; left: 160px; font-size: 36px; font-weight: 800; line-height: 46px; letter-spacing: -1px; opacity: 0; transition: all .5s linear .8s;}
+.slide_page.active > a > strong {opacity: 1;}
+.slide_page > a > span {position: absolute; bottom: 160px; left: 160px; font-size: 15px; line-height: 1.6; opacity: 0; transition: all .5s linear .8s;}
+.slide_page.active > a > span {opacity: 1;}
+.btn {position: absolute; bottom: 198px; width: 46px; height: 46px; opacity: 0.8; text-indent: -9999px;}
+.btn:hover {opacity: 1; transition: opacity .3s;}
+.btn.prev {left: 85px; background-position: -296px -99px;}
+.btn.next {right: 85px; background-position: -346px -99px;}
+.page_num_area {position: absolute; bottom: 114px; left: 160px; color: #fff; font-size: 12px;}
+.page_num_area > .page_num {font-weight: 800;}
+.page_num_area > .total {position: relative; padding-left: 12px;}
+.page_num_area > .total::before {position: absolute; content: ''; top: 50%; left: 5px; width: 1px; height: 8px; margin-top: -4px; background-color: #d6d6d5;}
+.slide_progressbar {position: absolute; bottom: 221px; left: 160px; width: calc(100% - 320px); height: 1px; background-color: rgba(255, 255, 255, 0.2);}
+.slide_progressbar > .state {position: absolute; top: 0; left: 0; width: 20%; height: 1px; background-color: #fff; transition: width .3s;}
+
+
+
+
 
 /* contents */
 .mainItem{display: flex; width: 100%; justify-content: center; display: none;}
