@@ -1,12 +1,28 @@
-const lang = document.querySelector(".header_util > .lang > a");
+const lang = document.querySelector(".btn_lang");
 const langBox = document.querySelector('.lang_box');
+const html = document.querySelector('html');
 
-lang.addEventListener('mouseover',()=>{
+lang.addEventListener('click',()=>{
     langBox.style.display = 'block'
-})
-lang.addEventListener('mouseout',() =>{
-    langBox.style.display = 'none'
-})
+
+    html.addEventListener('click', function(e){
+        if(!closeCheck(e.target)){
+            langBox.style.display = 'none';
+
+            this.removeEventListener('click', arguments.callee);
+        }
+        function closeCheck(click){
+            while (click.className !== 'wrap'){
+                if(click.className === 'header_util'){
+                    return true;
+                }
+                click = click.parentNode;
+            }
+            return false;
+        }
+    })
+});
+
 
 const nav = document.querySelector('ul.gnb')
 const navList = document.querySelector('.lnb_inner')
@@ -109,3 +125,4 @@ nav.addEventListener('mouseout',() =>{
 //   setInterval(() => {
 //     s1.next();
 //   }, 3000)
+
