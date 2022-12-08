@@ -23,6 +23,23 @@ lang.addEventListener('click',()=>{
     })
 });
 
+// gnb 호버 시 lnb출력
+const gnb = document.querySelector('ul.gnb');
+const bgLnb = document.querySelector('.bg_lnb');
+
+gnb.addEventListener('mouseenter', () => {
+	gnb.classList.add('hover');
+	bgLnb.classList.add('active');
+});
+bgLnb.addEventListener('mouseenter', () => {
+	gnb.classList.add('hover');
+	bgLnb.classList.add('active');
+});
+gnb.addEventListener('mouseleave', () => {
+	gnb.classList.remove('hover');
+	bgLnb.classList.remove('active');
+});
+
 const slideList = document.querySelector('ul.slide_list');
 	const slidePage = slideList.querySelectorAll('.slide_page');
 	const pageLen = slidePage.length; // li 길이
