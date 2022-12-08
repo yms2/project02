@@ -29,11 +29,11 @@ const slideList = document.querySelector('ul.slide_list');
 	const slidePageWidth = 100 / (pageLen + 2); // li 너비 계산
 	const pageNum = document.querySelector('.page_num');
 	const state = document.querySelector('.state');
-	let curIdx = 0;
+	let curIdx = 1;
 	let curPage = slidePage[curIdx]; // 활성화 슬라이드 선언
 	curPage.classList.add('active');
 
-	slideList.style.width = `${100 * (pageLen + 2)}%`; // ul 너비 지정
+	slideList.style.width = `${90 * (pageLen + 3)}%`; // ul 너비 지정
 	slidePage.forEach((element) => {
 		element.style.width = `${slidePageWidth}%`;
 	}); // li 너비 지정
@@ -60,7 +60,7 @@ const slideList = document.querySelector('ul.slide_list');
 
 			curPage = slidePage[curIdx];
 			pageNum.textContent = curIdx + 1;
-			state.style.width = `${20 * (curIdx + 1)}%`;
+			state.style.width = `${33.3 * (curIdx + 1)}%`;
 
 			if(curIdx === pageLen) {
 				setTimeout(() => {
@@ -70,7 +70,7 @@ const slideList = document.querySelector('ul.slide_list');
 				curIdx = 0;
 				curPage = slidePage[curIdx];
 				pageNum.textContent = curIdx + 1;
-				state.style.width = '20%';
+				state.style.width = '100%';
 			};
 
 			curPage.classList.add('active');
@@ -92,7 +92,7 @@ const slideList = document.querySelector('ul.slide_list');
 
 		curPage = slidePage[curIdx];
 		pageNum.textContent = curIdx + 1;
-		state.style.width = `${20 * (curIdx + 1)}%`;
+		state.style.width = `${33.3 * (curIdx + 1)}%`;
 
 		if(curIdx === pageLen) {
 			setTimeout(() => {
@@ -102,32 +102,11 @@ const slideList = document.querySelector('ul.slide_list');
 			curIdx = 0;
 			curPage = slidePage[curIdx];
 			pageNum.textContent = curIdx + 1;
-			state.style.width = '20%';
+			state.style.width = '100%';
 		};
 
 		curPage.classList.add('active');
 	};
-
-	// 다음버튼 클릭
-	const btnNext = document.querySelector('.btn.next');
-	let click = true;
-
-	btnNext.addEventListener('click', () => {
-		if (click) {
-			clearInterval(setting); // 자동재생 중지
-			
-			nextPage();
-
-			autoPlay();
-
-			click = !click;
-
-			// transition(1s) 완료 후 클릭이 또 가능하도록
-			setTimeout(() => {
-				click = true;
-			},1000)
-		}
-	});
 
 	// 이전 페이지로 이동
 	function prevPage() {
@@ -140,7 +119,7 @@ const slideList = document.querySelector('ul.slide_list');
 
 		curPage = slidePage[curIdx];
 		pageNum.textContent = curIdx + 1;
-		state.style.width = `${20 * (curIdx + 1)}%`;
+		state.style.width = `${33.3 * (curIdx + 1)}%`;
 
 		if(curIdx === -1) {
 			setTimeout(() => {
@@ -156,22 +135,3 @@ const slideList = document.querySelector('ul.slide_list');
 		curPage.classList.add('active');
 	};
 
-	// 이전버튼 클릭
-	const btnPrev = document.querySelector('.btn.prev');
-
-	btnPrev.addEventListener('click', () => {
-		if (click) {
-			clearInterval(setting); // 자동재생 중지
-			
-			prevPage();
-
-			autoPlay();
-
-			click = !click;
-
-			// transition(1s) 완료 후 클릭이 또 가능하도록
-			setTimeout(() => {
-				click = true;
-			},1000)
-		}
-	});
