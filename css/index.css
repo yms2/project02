@@ -206,7 +206,7 @@ form button{cursor: pointer;width: 73px;height: 43px;border-radius: 0 10px 10px 
 .cont6 .cont6_sub{padding: 0 15px; border-left: 1px solid #b1b5b9}
 .cont6 .cont6_sub > h2{ font-size: 19px;}
 .cont6 .cont6_sub > ul{padding: 30px 0 0 0;}
-.cont6 .cont6_sub > ul > li{padding: 5px;}
+.cont6 .cont6_sub > ul > li{padding: 0 0 5px;}
 .cont6 .cont6_sub > ul > li >a {font-size: 16px;color: #797c7f;}
 .cont6 .cont6_sub .before{width: 25px; height: 2px; background-color: #000;margin-bottom: 15px;}
 .cont6 .cont6_sub .barogo{padding-top: 15px;}
@@ -215,9 +215,22 @@ form button{cursor: pointer;width: 73px;height: 43px;border-radius: 0 10px 10px 
 
 
 /* footer */
+.footer{width: 100%;height: 300px; background-color:#3a3d44; position: relative;}
+.footer .footer_top{width: 1250px; height: 65px; border: 1px solid  #72787f;display: flex;justify-content: center; margin: 0 auto;}
+.footer .footer_top > li{width: 250px; text-align: start; line-height: 65px;border-right:1px solid  #72787f;}
+.footer .footer_top > li:last-child{border-right: 0px;}
+.footer .footer_top > li > a{height: 65px;width: 250px; position: relative;padding:0 110px 0 20px; color: white;}
+.footer .footer_top > li > a::after{width: 15px; height: 15px; background-color: red;}
 
-.footer{width: 100%;height: 300px; background-color:#343F53 ;}
-.footer .footer_top{width: 1250px; height: 65px; background-color: #00B843; display: flex;justify-content: center; margin: 0 auto;}
-.footer .footer_top > li{width: 250px; border: 1px solid #00afb1; text-align: start; line-height: 65px;}
-.footer .footer_top > li > a{position: relative; padding-left: 20px;}
-.footer .footer_top > li > a::before{position: absolute;top: 50%; background: url(/img/ico_arrow2.png);}
+.footer_top > li > ul{position: absolute;bottom: 100%; width: 250px;height: 200px;overflow-y: scroll;border: 1px solid #000;transition: 0.15s ease;display: none;}
+.footer_top > li > ul > li{padding: 9px; padding-left: 25px;}
+.footer_bottom_wrap{width: 100%;}
+.footer_bottom{width: 1250px; height: 233px;position: absolute;left: 327px;}
+.footer_bottom .simbol{border: 1px solid  #72787f;width:150px; font-size: 15px; padding: 7px;margin-top: 35px;float: left;color: white; ;}
+.footer_bottom p img{float: left;}
+.footer_bottom .sns{padding-top: 55px;}
+.footer_bottom .sns a{padding: 3px;}
+.footer_bottom .sns a:first-child{margin-left: 30px;}
+.footer_bottom .fnb{margin-top: 25px;}
+.footer_bottom .fnb a{font-size: 17px; font-weight: 500; color: white;}
+.footer_bottom .copy{margin-top: 15px; color: #6c757d;}

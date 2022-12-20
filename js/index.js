@@ -152,3 +152,4 @@ const slideList = document.querySelector('ul.slide_list');
 		curPage.classList.add('active');
 	};
 
+
