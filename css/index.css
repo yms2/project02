@@ -166,10 +166,10 @@ form button{cursor: pointer;width: 73px;height: 43px;border-radius: 0 10px 10px 
 .cont3_item .cont3_main .main2 a{width: 228px; height: 215px; padding: 30px;color: #fff; border-radius: 10px;display: flex;flex-direction: column;}
 .cont3_item .cont3_main .main2 a .title{font-size: 23px;font-weight: 500;}  
 .cont3_item .cont3_main .main2 a .txt{font-size: 18px; font-weight: 500; line-height: 1.2;}
-.cont3_item .cont3_main .main2 .news1{background: url(/img/imageSrc3.png); background-size: cover;}
-.cont3_item .cont3_main .main2 .news2{background: url(/img/imageSrc4.png); background-size: cover;}
-.cont3_item .cont3_main .main2 .news3{background: url(/img/imageSrc5.png); background-size: cover;margin-top: 20px;}
-.cont3_item .cont3_main .main2 .news4{background: url(/img/imageSrc6.png); background-size: cover;margin-top: 20px;}
+.cont3_item .cont3_main .main2 .news1{width: 228px; height: 215px; background: url(/img/imageSrc3.png); background-size: cover;}
+.cont3_item .cont3_main .main2 .news2{width: 228px; height: 215px; background: url(/img/imageSrc4.png); background-size: cover;}
+.cont3_item .cont3_main .main2 .news3{width: 228px; height: 215px; background: url(/img/imageSrc5.png); background-size: cover;margin-top: 20px;}
+.cont3_item .cont3_main .main2 .news4{width: 228px; height: 215px; background: url(/img/imageSrc6.png); background-size: cover;margin-top: 20px;}
 
 .cont4{width: 1250px; height: 800px;margin: 0 auto;}
 .cont4 .cont4_item h2{font-size: 2.3em; color: #000; font-weight: 600; text-align: center;padding-top: 70px;}
@@ -181,7 +181,7 @@ form button{cursor: pointer;width: 73px;height: 43px;border-radius: 0 10px 10px 
 .cont4 .cont4_slider > div{display: flex; width: 281px;border: 1px solid #b1b5b9;border-radius: 15px; height: 110px; margin-top: 15px;}
 .cont4 .cont4_slider > div a{display: flex; width: 100%; padding: 0 20px; align-items: center;justify-content: space-between;}
 .cont4 .cont4_slider > div a span{font-size: 17px; color: #000; font-weight: 500; line-height: 1.2;}
-.cont4 .cont4_slider > div strong{min-width: 36px; height: 36px; border: 2px solid #a5aab2;margin-left: 5px; background: url(/img/main-images-2_76.png)no-repeat center center; border-radius: 100%;}
+.cont4 .cont4_slider > div strong{width: 36px; height: 36px; border: 2px solid #a5aab2;margin-left: 5px; background: url(/img/main-images-2_76.png)no-repeat center center; border-radius: 100%;}
 
 .cont5{width: 100%; height: 580px; background-color: #e7e4dd;}
 .cont5 .cont5_item{width: 1300px; height: 100%;margin: 0 auto;}
